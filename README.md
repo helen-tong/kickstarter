@@ -16,7 +16,7 @@
 
 ## Background 
 
-Kickstarter is a crowdfunding platform with a stated mission to "bring creative projects to life". Since its launch in 20019, it has attracted artists, designers, musicians, and creative people from all over the world to pitch their project ideas to the public in hopes to make their vision a reality. According to [Kickstarter](https://www.kickstarter.com/charter?ref=how_it_works), there have been more than 17 million people pledging a total of more than $4 billion to fund 445,000 projects. These projects include films, music, stage shows, comics, video games, technology, design, food and arts and crafts. 
+Kickstarter is a crowdfunding platform with a stated mission to "bring creative projects to life". Since its launch in 2009, it has attracted artists, designers, musicians, and creative people from all over the world to pitch their project ideas to the public in hopes to make their vision a reality. According to [Kickstarter](https://www.kickstarter.com/charter?ref=how_it_works), there have been more than 17 million people pledging a total of more than $4 billion to fund 445,000 projects. These projects include films, music, stage shows, comics, video games, technology, design, food, and arts and crafts. 
 
 ---
 
@@ -44,7 +44,7 @@ The columns that I kept are:
 - Staff Pick
 - State (successful or failed)
 
-From these features, I was able to perform featuring to extract the following features:
+From these features, I was able to perform feature engineering to extract the following features:
 - Launch month
 - Launch year
 - Category Type
@@ -57,11 +57,11 @@ From these features, I was able to perform featuring to extract the following fe
 
 ### An overview of data
 
-Number of projects launched from 2009 to 2020 plot in a time series graph. There is a between between 2014 and 2015, and then we're starting to see a trend of a decrease in volumne around December of each year.
+Number of projects launched from 2009 to 2020 plot in a time series graph. There was a peak between 2014 and 2015, and then we're starting to see a trend of a decrease in volume around December of each year starting 2014.
 
 ![total](images/year_count.png)
 
-Of all the campaigns that were launched at Kickstarter, 54% of them are successful and 40% of them have failed. With the vast majority launched in the US, a total of 119,325 campaigns! Followed by the UK, with a total of 18,833 campaigns. 
+Of all the campaigns that were launched at Kickstarter, 54% of them are successful and 40% of them have failed. The vast majority were launched in the US, with a total of 119,325 campaigns! Followed by the UK, with a total of 18,833 campaigns. 
 
 ![status](images/status_bar.png)    ![country](images/country_pie.png)
 
@@ -75,14 +75,14 @@ The five most common type of campaigns listed on Kickstarter are film & videos, 
 
 ### How do features vary between successful campaigns and failed campaigns?
 
-The median goal for failed campaigns roughly $7,500 while successful campaigns have a median goal of $3,500. Unsurprisingly, lower goal tend to yield a successful campaign. As for campaign length, longer does not necessary attract more backers. The median campaign length for successful campaigns are around 30 days, versus failed campaigns have a slightly longer length. And lastly, majority of the campaigns that are staff picked end up to be successful campaigns. 
+The median goal for failed campaigns are roughly $7,500 while successful campaigns have a median goal of $3,500. Unsurprisingly, lower goal tend to yield a successful campaign. As for campaign length, longer does not necessary attract more backers. The median campaign length for successful campaigns are around 30 days, versus failed campaigns have a slightly longer length. And lastly, majority of the campaigns that are staff picked end up to be successful campaigns. 
 
 ![median](images/median_graph.png)
 
 
 ### How do campaigns do in general by year?
 
-Most campaigns launched between 2010 and end of 2013 were able to raised enough funds to meet their goal by deadline. That trend disappeared from 2014 to 2018, and then there was huge spike of successful campaigns in 2019. 
+Most campaigns launched between 2010 until the end of of 2013 were able to raised enough funds to meet their goal by deadline. That trend disappeared from 2014 to 2018, and then there was huge spike of successful campaigns in 2019. 
 
 ![yearly_summary](images/yearly_summary.png)
 
@@ -91,7 +91,7 @@ Most campaigns launched between 2010 and end of 2013 were able to raised enough 
 
 ## Modeling
 
-After doing one hot encoding to all categorical features, I was ready to split the data into training set and testing set, and train them with machine learning models. The three models that I did my baseline models are logistic regression, random forest classifier, and gradient boost classifier. 
+After doing one hot encoding to all categorical features, I was ready to split the data into training set and testing set, and train them with machine learning models. The three models that I did as my baseline models are logistic regression, random forest classifier, and gradient boost classifier. 
 
 ### Logistic Regression
 - **Accuracy:** 0.627
@@ -123,6 +123,8 @@ After doing one hot encoding to all categorical features, I was ready to split t
 Because my data is balanced, the accuracy score would be a metric I want to use to evaluate how accurate my model is. The accuracy score is the ratio of number of correct predictions to the total number of input samples. In combination with the cross val score and the confusion matrix, I am confident to select gradient boost classifier as the best machine learning model I can use for this prediction. 
 
 Let's evaluate it further by looking at the ROC curve. The ROC curve also shows that gradient boost classifier performs the best out of all three models.
+
+
 ![roc_plot](images/roc_plot.png)
 
 
@@ -138,16 +140,16 @@ After adding the 4 classes of sentiment scores to my features, I fit my training
 
 Next, I wanted to tune my hypyerparameters by running grid search. After putting my machine to work for 2 hours, grid search returned the most optimal hyperparameters for my gradient boost classifier model:
 
-**Learning rate:** 0.1
-**Max Depth:** 6
-**Min Sample Leaf:** 2
-**Max Features:** 1
-**N_estimators:** 500
-**random_state:** 1
+- **Learning rate:** 0.1
+- **Max Depth:** 6
+- **Min Sample Leaf:** 2
+- **Max Features:** 1
+- **N_estimators:** 500
+- **random_state:** 1
 
 ### Feature Importance 
 
-I also looked into feature importance to identify what are some of the top most impactful features to the dependent variable. These did not come to a surprise as reaffirm some of the analysis I did in my EDA.
+I also looked into feature importance to identify what are some of the most impactful features to the dependent variable. These did not come to a surprise as they reaffirm some of the analysis I did in my EDA.
 
 ![features](images/feature_importance.png)
 
@@ -155,19 +157,19 @@ I also looked into feature importance to identify what are some of the top most 
 
 To conclude, here are some of the suggestions for a successful campaign on Kickstarter:
 - **Goal:** Have a reasonable funding goal.
-- **Staff Pick:** Staff picks campaigns get prime placement on the Kickstarter's website and they appear in Kickstarter's widely-distributed email. It would only make sense to that being featured on "Projects We Love" by Kickstarter would help with meeting your project goal.
-- **Launched Year:** If you launched your project between in 2011 to Dec 2013, or 2019, chances are you would have a successful campaign than if you launched your campaign between 2014 and 2018.
-- **Campaign Length:** Keep your campaign length around 30 days. 
+- **Staff Pick:** Staff pick campaigns get prime placement on the Kickstarter's website and they appear in Kickstarter's widely-distributed email. It would only make sense that being featured on "Projects We Love" by Kickstarter would help with meeting your project goal.
+- **Launched Year:** If you launched your project between 2011 to Dec 2013, or 2019, chances are you would have a successful campaign than if you have launched your campaign between 2014 and 2018.
+- **Campaign Length:** Keep your campaign length to 30 days. 
 
-Using machine learning, I am able to predict, with **0.751** accurancy, whether a Kickstarter campaign would meet its funding goal within 60 days of its launch. Here is the most optimal model:
+Using machine learning, I am able to predict, with **0.751** accurancy, whether a Kickstarter campaign would meet its funding goal within 60 days of its launch. And here is the most optimal model:
 
-### Gradient Boost Classifier:
-**Learning rate:** 0.1
-**Max Depth:** 6
-**Min Sample Leaf:** 2
-**Max Features:** 1
-**N_estimators:** 500
-**random_state:** 1
+#### Gradient Boost Classifier:
+- **Learning rate:** 0.1
+- **Max Depth:** 6
+- **Min Sample Leaf:** 2
+- **Max Features:** 1
+- **N_estimators:** 500
+- **random_state:** 1
 
 
  

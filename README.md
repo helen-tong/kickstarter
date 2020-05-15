@@ -8,6 +8,8 @@
 - [Data](#the-data)
 - [Exploratory Data Analysis](#exploratory-data-analysis)
 - [Modeling](#modeling)
+- [Natural Language Processing (NLP)](#natural-language-processing-(NLP))
+- [Hyperparameters and Feature Importance](#hyperparameters_and_feature_importance)
 - [Conclusion](#conclusion)
 
 ---
@@ -87,66 +89,65 @@ Most campaigns launched between 2010 and end of 2013 were able to raised enough 
 
 ---
 
-# Modeling
+## Modeling
 
 After doing one hot encoding to all categorical features, I was ready to split the data into training set and testing set, and train them with machine learning models. The three models that I did my baseline models are logistic regression, random forest classifier, and gradient boost classifier. 
 
 ### Logistic Regression
 - **Accuracy:** 0.627
 - **Cross val score:** 0.623
+- **Confusion Matrix:**
+     | 21,848   | 2663  | 
+    | :-------- | :------: | 
+    | **13,206** | **4,681**| 
+
 
 ### Random Forest Classifier
 - **Accuracy:** 0.715
 - **Cross val score:** 0.714
+- **Confusion Matrix:**
+     | 18,001    | 6510   | 
+    | :-------- | :------: | 
+    | **5,529** | **12,358**| 
 
 ### Gradient Boost Classifier
 - **Accuracy:** 0.742
 - **Cross val score:** 0.738
 - **Confusion Matrix:** 
 
-| 20,133 | 4,378 |
-| 6,573  | 11,314|
-                        
+    | 20,133    | 4,378   | 
+    | :-------- | :------: | 
+    | **6,573** | **11,314**| 
+
+
+Because my data is balanced, the accuracy score would be a metric I want to use to evaluate how accurate my model is. The accuracy score is the ratio of number of correct predictions to the total number of input samples. In combination with the cross val score and the confusion matrix, I am confident to select gradient boost classifier as the best machine learning model I can use for this prediction. 
+
+Let's evaluate it further by looking at the ROC curve. The ROC curve also shows that gradient boost classifier performs the best out of all three models.
+![roc_plot](images/roc_plot.png)
+
+
+## Natural Language Processing (NLP)
+
+Sentiment analysis is a sub-field of natural language processing that tries to identify and extract opinions by gauging the attitude, sentiments, and emotions of a writer through texts. I have decided to use the VADER sentiment analysis from the nltk library in python to evaluate the blurb feature, which is the headline to a campaign, to see if I can improve my model using sentiment analysis. 
+
+The VADER analyzer algorithem outputs sentiment scores to 4 classes of sentiments: negative, neutral, positive, and compound, which is the aggregated score of the other three sentiments. 
+
+After adding the 4 classes of sentiment scores to my features, I fit my training data into my three models and find that adding sentiment analysis did not make an impact to my models. 
+
+## Hyperparameters and Feature Importance
+
+Next, I wanted to tune my hypyerparameters by running grid search. After putting my machine to work for 2 hours, grid search returned the most optimal hyperparameters for my gradient boost classifier model:
+
+**Learning rate:** 0.1
+**Max Depth:** 6
+**Min Sample Leaf:** 2
+**Max Features:** 1
+**N_estimators:** 100
+**random_state:** 1
 
 
 
-According to my findings, we can see that the Welch's t-test statistics is 2.34. The probability of having this result, or more extreme, given the null hypothesis is true is 0.0099. This is statistically signficiant enough for us to reject the null hypothesis. Airbnb listings in Noe Valley are generally more expensive than Mission.
-
-![mission_noe_curve](images/mission_noe_curve.png)
-
-### Mann-Whitney U-test
-I also performend a Mann-Whitney U-test with  similar result with a p-value of 0.016. Noe Valley is clearly more expensive than Mission.
-
-## Inner Sunset vs. Outer Sunset
-
-- Inner Sunset 
-    - Avg price: $230.24
-    - Count: 161
-
-- Outer Sunset
-    - Avg price: $153.97
-    - Count: 277
-
-Here is the distribution of listing price between the two neighborhoods.
-
-![sunset_dist](images/sunset_dist.png)
-
-One tail hypothesis test varialbes:
-- **Null Hypothesis:** Inner Sunset is more expensive than Outer Sunset by chance.
-- **Alternative Hypothesis:** Inner Sunset is truly more expensive than Outer Sunset. 
-- **Alpha Level:** 0.05
-- **Welch Test Statistics:** 2.95
-- **Degrees of Freedom:** 281.25
-- **p-value:** 0.0017
-
-According to my findings, we can see that the Welch's t-test statistics is 2.95. The probability of having this result, or more extreme, given the null hypothesis is true is 0.0017. This is statistically signficiant enough for us to reject the null hypothesis. Airbnb listings in Inner Sunset are generally more expensive than Outer Sunset.
-
-![sunset_curve](images/sunset_curve.png)
-
-### Mann-Whitney U-test
- The Mann-Whitney U-test with similar result with a p-value of 0.0000. Inner Sunset is clearly more expensive than Outer Sunset.
-
-# Conclusion
+## Conclusion
 
 When I ran my hypothesis testing, my Welch's t-tests were returning different results from my Mann-Whitney U-tests. Reason being there are a couple of outliers in the neighborhoods with prices listed for more than $2,000 a night. As Welch's t-tests are sensitive to standard deviations, I removed all listing prices of more than $2,000 and they gave me similar results to my Mann-Whitney U-test. 
 

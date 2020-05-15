@@ -1,5 +1,7 @@
 # Kickstarting Your Project
 
+![ideas](images/ideas.jpg)
+
 ## Table of Contents
 - [Background](#Background)
 - [Project Goal](#project-goal)
@@ -12,34 +14,40 @@
 
 ## Background 
 
-Kickstarter is a crowdfunding platform with a stated mission to "bring creative projects to life". Since its launch in 2009, it has attracted artists, designers, musicians, and creative people from all over the world to pitch their project ideas to the public in hopes to make their vision a reality. According to [Kickstarter](https://www.kickstarter.com/charter?ref=how_it_works), there more than 17 million people who have pledged a total of more than $4 billion. 
+Kickstarter is a crowdfunding platform with a stated mission to "bring creative projects to life". Since its launch in 20019, it has attracted artists, designers, musicians, and creative people from all over the world to pitch their project ideas to the public in hopes to make their vision a reality. According to [Kickstarter](https://www.kickstarter.com/charter?ref=how_it_works), there have been more than 17 million people pledging a total of more than $4 billion to fund 445,000 projects. These projects include films, music, stage shows, comics, video games, technology, design, food and arts and crafts. 
 
 ---
 
 ## Project Goal
 
-Being raised in San Francisco, I am aware that house prices between neighborhoods can vary dramatically. Let's look at some pricing examples for neighborhoods that are in close proximity:
-
-As of April 2020:
-- Noe Valley median price: **$2,210,000**
-- Mission District median price: **$1,530,000**
-- Distance between the centers of the two neighboring districts is 1.8 miles.
-
-The difference in median price between two neighborhoods in close proxmity is $680,000!
-
-Now let's look at another group:
-- Inner Sunset median home price: **$1,750,000** 
-- Outer Sunset median home price: **$1,429,000**
-- Distance between the heart of two neighboring districts is also 1.8 miles.
-
-
-House prices play a role between districts, but how do Airbnb prices vary between them? In other words, if investors are looking to buy a property in San Francisco just for an extra stream of income through Airbnb, should they be saving more than half a million dollars by purchasing properties in a less expensive neighborhood?
+One would wonder what makes a kickstarter campaign successful. Let's wonder no more. We are going to use machine learning models to predict whether a campaign will meet its funding goal within 90 days of launched date. Hence to answer the question, "what can you leverage to make your campaign successful?"
 
 ---
 
 ## The Data
 
-Airbnb has public downloadable datasets between cities across the world. There are details of each listing, reviews and neighborhoods. I was mainly working off of the detailed listing dataset which contains all listings for San Francisco in 2019. Data was scraped June of 2019 and it has 7575 rows, 106 columns. 
+There are downloadable Kickstarter datasets that are being scraped monthly. The datasets I use have a total of 55 csv files that contain campaigns starting from April of 2009 up until April of 2020. I started with 204,625 rows and 38 columns of data; after removing duplicate entries, cancelled and live campaigns, irrelevant features, and campaigns with a length of more than 90 days, I was left with 169,591 datapoints to work with. 
+
+The columns that I kept are:
+- Backers Count (number of backers per campaign)
+- Blurb (Brief description of the campaign)
+- Profile 
+- Country
+- Deadline
+- Goal
+- Launched at
+- Name 
+- Pledged (funds raised)
+- Slug
+- Staff Pick
+- State (successful or failed)
+
+From these features, I was able to perform featuring to extract the following features:
+- Launch month
+- Launch year
+- Category Type
+- Campaign length
+- Blurb length
 
 ---
 

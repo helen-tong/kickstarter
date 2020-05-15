@@ -142,16 +142,33 @@ Next, I wanted to tune my hypyerparameters by running grid search. After putting
 **Max Depth:** 6
 **Min Sample Leaf:** 2
 **Max Features:** 1
-**N_estimators:** 100
+**N_estimators:** 500
 **random_state:** 1
 
+### Feature Importance 
 
+I also looked into feature importance to identify what are some of the top most impactful features to the dependent variable. These did not come to a surprise as reaffirm some of the analysis I did in my EDA.
+
+![features](images/feature_importance.png)
 
 ## Conclusion
 
-When I ran my hypothesis testing, my Welch's t-tests were returning different results from my Mann-Whitney U-tests. Reason being there are a couple of outliers in the neighborhoods with prices listed for more than $2,000 a night. As Welch's t-tests are sensitive to standard deviations, I removed all listing prices of more than $2,000 and they gave me similar results to my Mann-Whitney U-test. 
+To conclude, here are some of the suggestions for a successful campaign on Kickstarter:
+- **Goal:** Have a reasonable funding goal.
+- **Staff Pick:** Staff picks campaigns get prime placement on the Kickstarter's website and they appear in Kickstarter's widely-distributed email. It would only make sense to that being featured on "Projects We Love" by Kickstarter would help with meeting your project goal.
+- **Launched Year:** If you launched your project between in 2011 to Dec 2013, or 2019, chances are you would have a successful campaign than if you launched your campaign between 2014 and 2018.
+- **Campaign Length:** Keep your campaign length around 30 days. 
 
-In conlusion, both Welch's t-tests and Mann-Whitney U Tests return statistically significant results to indicate Airbnb listing prices do vary by neighborhoods in San Francisco, even if they are in close proximity. If an investor wants to purchase a property in San Francisco for listing in Airbnb, the location of the property is a good indicator of how much to charge for the listing. 
+Using machine learning, I am able to predict, with **0.751** accurancy, whether a Kickstarter campaign would meet its funding goal within 60 days of its launch. Here is the most optimal model:
+
+### Gradient Boost Classifier:
+**Learning rate:** 0.1
+**Max Depth:** 6
+**Min Sample Leaf:** 2
+**Max Features:** 1
+**N_estimators:** 500
+**random_state:** 1
+
 
  
 

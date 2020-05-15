@@ -53,17 +53,26 @@ From these features, I was able to perform featuring to extract the following fe
 
 ## Exploratory Data Analysis
 
-**How are listing price distributed across San Francisco?**
+**An overview of data**
 
-As expected, listing price generally concentrate on the lower end, with a handful of expensive listing with over $500 per night.
+Number of projects launched from 2009 to 2020 plot in a time series graph. There is a between between 2014 and 2015, and then we're starting to see a trend of a decrease in volumne around December of each year.
 
-![all_listings](images/list_all.png)
+![total](images/year_count.png)
 
-**How do price vary between neighborhoods?**
+Of all the campaigns that were launched at Kickstarter, 54% of them are successful and 40% of them have failed. 
 
-Graph below shows average listing price for the top 20 most expensive neighborhoods along with count of listings in the neighborhood. It does not seem to me that count of listings affect price. Now I am curious to see what affects pricing other than the location of listings.
+![status](images/status_chart.png) 
 
-![top_20](images/top_20.png)
+The pie chart below shows the distribution of top 5 countries in which campaigns are being launched. With the vast majority launched in the US, a total of 119,325 campaigns! Followed by the UK, with a total of 18,833 campaigns.
+
+![country](images/country_pie.png)
+
+**How do campaigns vary by categories?**
+
+The five most common type of campaigns listed on Kickstarter are film & videos, music, technology, publishing and art. 
+
+![category_type](images/category_type.png)![avg_category](images/avg_category.png)
+
 
 
 I calculated the price per person rate for each listing by dividing listing price by number accommodated to get the average price per person. I plotted them using their latitudes and longitudes. Colors are by average price per neighborhood, circle sizes are by price per person for each listing. This image shows that listings in center of the city tend of have higher price, and then listings facing the Golden Gate Bridge (North) are the highest priced. 

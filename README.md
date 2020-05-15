@@ -7,7 +7,7 @@
 - [Project Goal](#project-goal)
 - [Data](#the-data)
 - [Exploratory Data Analysis](#exploratory-data-analysis)
-- [Analysis](#analysis)
+- [Modeling](#modeling)
 - [Conclusion](#conclusion)
 
 ---
@@ -59,60 +59,54 @@ Number of projects launched from 2009 to 2020 plot in a time series graph. There
 
 ![total](images/year_count.png)
 
-Of all the campaigns that were launched at Kickstarter, 54% of them are successful and 40% of them have failed. 
+Of all the campaigns that were launched at Kickstarter, 54% of them are successful and 40% of them have failed. With the vast majority launched in the US, a total of 119,325 campaigns! Followed by the UK, with a total of 18,833 campaigns. 
 
-![status](images/status_chart.png) 
+![status](images/status_chart.png) ![country](images/country_pie.png)
 
-The pie chart below shows the distribution of top 5 countries in which campaigns are being launched. With the vast majority launched in the US, a total of 119,325 campaigns! Followed by the UK, with a total of 18,833 campaigns.
-
-![country](images/country_pie.png)
 
 **How do campaigns vary by categories?**
 
-The five most common type of campaigns listed on Kickstarter are film & videos, music, technology, publishing and art. 
+The five most common type of campaigns listed on Kickstarter are film & videos, music, technology, publishing and art. However, campaigns that are design related attract the most generous backers, followed by technology.
 
 ![category_type](images/category_type.png)![avg_category](images/avg_category.png)
 
 
+**How do features vary between successful campaigns and failed campaigns?**
 
-I calculated the price per person rate for each listing by dividing listing price by number accommodated to get the average price per person. I plotted them using their latitudes and longitudes. Colors are by average price per neighborhood, circle sizes are by price per person for each listing. This image shows that listings in center of the city tend of have higher price, and then listings facing the Golden Gate Bridge (North) are the highest priced. 
+The median goal for failed campaigns roughly $7,500 while successful campaigns have a median goal of $3,500. Unsurprisingly, lower goal tend to yield a successful campaign. As for campaign length, longer does not necessary attract more backers. The median campaign length for successful campaigns are around 30 days, versus failed campaigns have a slightly longer length. And lastly, majority of the campaigns that are staff picked end up to be successful campaigns. 
+
+![median](images/median_graph.png)
 
 
-![coords_plot](images/coords_plot.png)
+**How do campaigns do in general by year?**
 
+Most campaigns launched between 2010 and end of 2013 were able to raised enough funds to meet their goal by deadline. That trend disappeared from 2014 to 2018, and then there was huge spike of successful campaigns in 2019. 
 
-**One would think that listing price would increase as number of guests increases. Is that the case for listings in San Francisco?**
-
-As it turns out not so much. This tells me that neighborhood might be the only factor that is affecting listing price.
-
-![accomomdates](images/accomoates.png)
+![yearly_summary](images/yearly_summary.png)
 
 
 ---
 
-# Analysis
+# Modeling
 
-## Mission vs. Noe Valley
+After doing one hot encoding to all categorical features, I was ready to split the data into training set and testing set, and train them with machine learning models. The three models that I did my baseline models are logistic regression, random forest classifier, and gradient boost classifier. 
 
-- Mission 
-    - Avg price: $225.95
-    - Count: 730
+### Logistic Regression
+- **Accuracy:** 0.627
+- **Cross val score:** 0.623
 
-- Noe Valley
-    - Avg price: $234.12
-    - Count: 325
+### Random Forest Classifier
+- **Accuracy:** 0.715
+- **Cross val score:** 0.714
 
-Here is the distribution of listing price between the two neighborhoods.
+### Gradient Boost Classifier
+- **Accuracy:** 0.742
+- **Cross val score:** 0.738
+- **Confusion Matrix:** | 20,133 | 4,378 |
+                        | 6,573  | 11,314|
+                        
 
-![mission_noe_dist](images/mission_noe_dist.png)
 
-One tail hypothesis test varialbes:
-- **Null Hypothesis:** Noe Valley is more expensive than Mission by chance.
-- **Alternative Hypothesis:** Noe Valley is truly more expensive than Mission. 
-- **Alpha Level:** 0.05
-- **Welch Test Statistics:** 2.34
-- **Degrees of Freedom:** 514.41
-- **p-value:** 0.0099
 
 According to my findings, we can see that the Welch's t-test statistics is 2.34. The probability of having this result, or more extreme, given the null hypothesis is true is 0.0099. This is statistically signficiant enough for us to reject the null hypothesis. Airbnb listings in Noe Valley are generally more expensive than Mission.
 

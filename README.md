@@ -8,8 +8,8 @@
 - [Data](#the-data)
 - [Exploratory Data Analysis](#exploratory-data-analysis)
 - [Modeling](#modeling)
-- [Natural Language Processing (NLP)](#natural-language-processing-(NLP))
-- [Hyperparameters and Feature Importance](#hyperparameters_and_feature_importance)
+- [Natural Language Processing (NLP)](#natural-language-processing-(nlp))
+- [Hyperparameters and Feature Importance](#hyperparameters-and-feature-importance)
 - [Conclusion](#conclusion)
 
 ---

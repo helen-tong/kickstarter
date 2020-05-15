@@ -53,7 +53,7 @@ From these features, I was able to perform featuring to extract the following fe
 
 ## Exploratory Data Analysis
 
-**An overview of data**
+#### An overview of data
 
 Number of projects launched from 2009 to 2020 plot in a time series graph. There is a between between 2014 and 2015, and then we're starting to see a trend of a decrease in volumne around December of each year.
 
@@ -61,24 +61,24 @@ Number of projects launched from 2009 to 2020 plot in a time series graph. There
 
 Of all the campaigns that were launched at Kickstarter, 54% of them are successful and 40% of them have failed. With the vast majority launched in the US, a total of 119,325 campaigns! Followed by the UK, with a total of 18,833 campaigns. 
 
-![status](images/status_chart.png) ![country](images/country_pie.png)
+![status](images/status_bar.png)    ![country](images/country_pie.png)
 
 
-**How do campaigns vary by categories?**
+#### How do campaigns vary by categories?
 
 The five most common type of campaigns listed on Kickstarter are film & videos, music, technology, publishing and art. However, campaigns that are design related attract the most generous backers, followed by technology.
 
 ![category_type](images/category_type.png)![avg_category](images/avg_category.png)
 
 
-**How do features vary between successful campaigns and failed campaigns?**
+#### How do features vary between successful campaigns and failed campaigns?
 
 The median goal for failed campaigns roughly $7,500 while successful campaigns have a median goal of $3,500. Unsurprisingly, lower goal tend to yield a successful campaign. As for campaign length, longer does not necessary attract more backers. The median campaign length for successful campaigns are around 30 days, versus failed campaigns have a slightly longer length. And lastly, majority of the campaigns that are staff picked end up to be successful campaigns. 
 
 ![median](images/median_graph.png)
 
 
-**How do campaigns do in general by year?**
+#### How do campaigns do in general by year?
 
 Most campaigns launched between 2010 and end of 2013 were able to raised enough funds to meet their goal by deadline. That trend disappeared from 2014 to 2018, and then there was huge spike of successful campaigns in 2019. 
 
@@ -102,8 +102,10 @@ After doing one hot encoding to all categorical features, I was ready to split t
 ### Gradient Boost Classifier
 - **Accuracy:** 0.742
 - **Cross val score:** 0.738
-- **Confusion Matrix:** | 20,133 | 4,378 |
-                        | 6,573  | 11,314|
+- **Confusion Matrix:** 
+| 20,133 | 4,378 |
+| :---: | :---: |
+| 6,573  | 11,314|
                         
 
 

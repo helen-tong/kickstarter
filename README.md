@@ -176,7 +176,21 @@ To compare apples to apples, I first ran my Gradient Boost model with the 26,779
 
 **With mid-campaign comments and length of comments:** 81.2%
 
+### LSTM on Sentiment Analysis
 
+I trained my LSTM model with 80,000 short phrases of Kickstarter comments. I split the data between training set and testing set, train a few models with different parameters, and the following parameters gave me the best result:
+
+Number of keywords: 150
+Maxmium words per comment: 50
+Embedding Dimension: 100
+Dropout = 0.2
+
+Total of 5 layers with 1 embedding, 2 LSTM, 1 dropout and 1 dense.
+
+Training accuracy: 78%
+Test accuracy: 70%
+
+With my LSTM model and sentiment analysis as an added feature, I was able to achieve 83.4% using Random Forest.
 
 
 
@@ -187,17 +201,9 @@ To conclude, here are some of the suggestions for a successful campaign on Kicks
 - **Staff Pick:** Staff pick campaigns get prime placement on the Kickstarter's website and they appear in Kickstarter's widely-distributed email. It would only make sense that being featured on "Projects We Love" by Kickstarter would help with meeting your project goal.
 - **Campaign Length:** Keep your campaign length to 30 days. 
 
-Using machine learning, I am able to predict, with **0.751** accurancy, whether a Kickstarter campaign would meet its funding goal within 60 days of its launch. And here is the most optimal model:
+When predicting all 170,000 Kickstarter campaigns, I am able to use machine learning to predict, with **75.1%** accurancy, whether a Kickstarter campaign would meet its funding goal within 60 days of its launch. 
 
-#### Gradient Boost Classifier:
-- **Learning rate:** 0.1
-- **Max Depth:** 6
-- **Min Sample Leaf:** 2
-- **Max Features:** 1
-- **N_estimators:** 500
-- **random_state:** 1
-
-
+Once I added the comment feature into my model, I was able to improve my model by approximately 3%. I believe I continue to tweek my model, and if I have more data points to work with, I will be able to provide a more prominant result on how sentiment analysis can impact a model.
  
 
 

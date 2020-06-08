@@ -160,7 +160,7 @@ I also looked into feature importance to identify what are some of the most impa
 
 ## LSTM Networks
 
-After achieving 75% accuracy of predictive power with campaign information, I wanted to know if evaluating mid-campaign comments will improve my model. Out of the 26,779 scraped campaigns, there are 8,001 campaigns that have mid-campaign comments. 
+After achieving 75% accuracy in predicting success using basic campaign information, I wanted to know if evaluating mid-campaign comments will improve my model. Out of the 26,779 scraped campaigns, there are 8,001 campaigns with mid-campaign comments in which I can add to my model as an added feature. I set the mid-campaign date as 15 days after its launch day, all comments left before the mid-campaign dates are comments that will be evaluated. As shown in the graph below, majority of the campaigns (18,778) do not have mid-campaign comments. But out of the 8,001 campaigns with mid-campaign comments, 80% of them were successful.
 
 ![status_group](images/status_group.png)
 

@@ -201,7 +201,7 @@ To conclude, here are some of the suggestions for a successful campaign on Kicks
 - **Staff Pick:** Staff pick campaigns get prime placement on the Kickstarter's website and they appear in Kickstarter's widely-distributed email. It would only make sense that being featured on "Projects We Love" by Kickstarter would help with meeting your project goal.
 - **Campaign Length:** Keep your campaign length to 30 days. 
 
-When predicting all 170,000 Kickstarter campaigns, I am able to use machine learning to predict, with **75.1%** accurancy, whether a Kickstarter campaign would meet its funding goal within 60 days of its launch. 
+In conclusion, I am able to use machine learning to predict, with **83.4%** accurancy, whether a Kickstarter campaign would meet its funding goal within 60 days of its launch. 
 
 Once I added the comment feature into my model, I was able to improve my model by approximately 3%. I believe I continue to tweek my model, and if I have more data points to work with, I will be able to provide a more prominant result on how sentiment analysis can impact a model.
  

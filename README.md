@@ -162,9 +162,23 @@ I also looked into feature importance to identify what are some of the most impa
 
 After achieving 75% accuracy in predicting success using basic campaign information, I wanted to know if evaluating mid-campaign comments will improve my model. Out of the 26,779 scraped campaigns, there are 8,001 campaigns with mid-campaign comments in which I can add to my model as an added feature. I set the mid-campaign date as 15 days after its launch day, all comments left before the mid-campaign dates are comments that will be evaluated. As shown in the graph below, majority of the campaigns (18,778) do not have mid-campaign comments. But out of the 8,001 campaigns with mid-campaign comments, 80% of them were successful.
 
-The 
+Because I did not have enough data to train my LSTM model, I used a dataset that I found on Kaggle to train my LSTM model. 
 
 ![status_group](images/status_group.png)
+
+## Evaluation
+
+To compare apples to apples, I first ran my Gradient Boost model with the 26,779 scraped campaigns to see how they do. Then I added a new categorical feature for campaigns with mid-campaign comments as 1, those without as 0. Then I added an additional campaign length feature as the number of mid_campaign comments. Here are the accuracy results: 
+
+**No added comment feature:** 80.5%
+
+**With catorical mid-campaign comments as feature:** 81.5%
+
+**With mid-campaign comments and length of comments:** 81.2%
+
+
+
+
 
 ## Conclusion
 

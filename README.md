@@ -10,6 +10,7 @@
 - [Modeling](#modeling)
 - [Natural Language Processing (NLP)](#natural-language-processing-nlp)
 - [Hyperparameters and Feature Importance](#hyperparameters-and-feature-importance)
+- [LSTM Networks](#lstm-networks)
 - [Conclusion](#conclusion)
 
 ---
@@ -28,7 +29,9 @@ One would wonder what makes a kickstarter campaign successful. Let's wonder no m
 
 ## The Data
 
-There are downloadable Kickstarter datasets that are being scraped monthly. The datasets I use have a total of 55 csv files that contain campaigns starting from April of 2009 up until April of 2020. I started with 204,625 rows and 38 columns of data; after removing duplicate entries, cancelled and live campaigns, irrelevant features, and campaigns with a length of more than 90 days, I was left with 169,591 datapoints to work with. 
+I worked with two sets of data for this project. One is downloadable Kickstarter datasets that contain detailed information about each campaign. However, it does not contain backers comments so I scraped my comments dataset manually. 
+
+The downloadable datasets have a total of 55 csv files that contain campaigns starting from April of 2009 up until April of 2020. I started with 204,625 rows and 38 columns of data; after removing duplicate entries, cancelled and live campaigns, irrelevant features, and campaigns with a length of more than 90 days, I was left with 169,591 datapoints to work with. 
 
 The columns that I kept are:
 - Backers Count (number of backers per campaign)
@@ -50,6 +53,8 @@ From these features, I was able to perform feature engineering to extract the fo
 - Category Type
 - Campaign length
 - Blurb length
+
+Because there is AJAX on their site. I had to use Pypeteer instead of BeautifulSoup to scrape their comments page. For that reason, I was only able to scrape 26,779 campaigns for their comments and dates. 
 
 ---
 
@@ -153,12 +158,17 @@ I also looked into feature importance to identify what are some of the most impa
 
 ![features](images/feature_importance.png)
 
+## LSTM Networks
+
+After achieving 75% accuracy of predictive power with campaign information, I wanted to know if evaluating mid-campaign comments will improve my model. Out of the 26,779 scraped campaigns, there are 8,001 campaigns that have mid-campaign comments. 
+
+![status_group](images/status_group.png)
+
 ## Conclusion
 
 To conclude, here are some of the suggestions for a successful campaign on Kickstarter:
 - **Goal:** Have a reasonable funding goal.
 - **Staff Pick:** Staff pick campaigns get prime placement on the Kickstarter's website and they appear in Kickstarter's widely-distributed email. It would only make sense that being featured on "Projects We Love" by Kickstarter would help with meeting your project goal.
-- **Launched Year:** If you launched your project between 2011 to Dec 2013, or 2019, chances are you would have a successful campaign than if you have launched your campaign between 2014 and 2018.
 - **Campaign Length:** Keep your campaign length to 30 days. 
 
 Using machine learning, I am able to predict, with **0.751** accurancy, whether a Kickstarter campaign would meet its funding goal within 60 days of its launch. And here is the most optimal model:

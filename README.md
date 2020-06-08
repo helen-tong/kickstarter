@@ -29,7 +29,7 @@ One would wonder what makes a kickstarter campaign successful. Let's wonder no m
 
 ## The Data
 
-I worked with two sets of data for this project. One is downloadable Kickstarter datasets that contain detailed information about each campaign. However, it does not contain backers comments so I scraped my comments dataset manually. 
+I'm using three different sets of data for this project: basic information for ~204,000 Kickstarter campaigns, backers' comments, and comments with sentiment analysis. The Kickstarter dataset that contain detailed information about each campaign is downloadable. Comments with sentiment analysis can be found on Kaggle, and lastly, I scraped the Kickstarter comments manually. 
 
 The downloadable datasets have a total of 55 csv files that contain campaigns starting from April of 2009 up until April of 2020. I started with 204,625 rows and 38 columns of data; after removing duplicate entries, cancelled and live campaigns, irrelevant features, and campaigns with a length of more than 90 days, I was left with 169,591 datapoints to work with. 
 
@@ -161,6 +161,8 @@ I also looked into feature importance to identify what are some of the most impa
 ## LSTM Networks
 
 After achieving 75% accuracy in predicting success using basic campaign information, I wanted to know if evaluating mid-campaign comments will improve my model. Out of the 26,779 scraped campaigns, there are 8,001 campaigns with mid-campaign comments in which I can add to my model as an added feature. I set the mid-campaign date as 15 days after its launch day, all comments left before the mid-campaign dates are comments that will be evaluated. As shown in the graph below, majority of the campaigns (18,778) do not have mid-campaign comments. But out of the 8,001 campaigns with mid-campaign comments, 80% of them were successful.
+
+The 
 
 ![status_group](images/status_group.png)
 

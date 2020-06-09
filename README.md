@@ -194,8 +194,11 @@ I trained my LSTM model with 80,000 short phrases of Kickstarter comments. I spl
 Training accuracy: 86%  
 Test accuracy: 78%
 
-With my LSTM model and sentiment analysis as an added feature, I was able to achieve **84.00%** using Random Forest.
+With my LSTM model and sentiment analysis as an added feature, I was able to achieve 84.00% accuracy score using Random Forest. 
 
+**Accuracy: 84%**  
+**Precision: 86%**   
+**Recall: 89%**
 
 
 ## Conclusion
@@ -207,7 +210,7 @@ Here are some of the suggestions for a successful campaign on Kickstarter:
 
 Majority of the kickstarter comments are posted after the campaign has been funded. In addition to that, roughly 20% of those with mid-campaign comments have failed. Hence, adding just the feature of whether or not there were mid-campaign comments did not seem to give a large enough signal. However, combining the comment feature along with their sentiment analysis brings new insights on how the general public views of the campaigns. 
 
-In conclusion, I am able to use machine learning to predict, with **84.00%** accurancy, whether a Kickstarter campaign would meet its funding goal within 60 days of its launch. 
+In conclusion, I am able to use machine learning to predict, with **84.00%** accuracy, whether a Kickstarter campaign would meet its funding goal within 60 days of its launch. 
 
 
 

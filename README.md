@@ -182,13 +182,13 @@ With mid-campaign comments and length of comments: **81.2%**
 I trained my LSTM model with 80,000 short phrases of Kickstarter comments. I split the data between training set and testing set, trained a few models with various parameters, and the following parameters gave me the best result:
 
 *Number of keywords: 200*  
-*Maxmium words per comment: 80*  
+*Maximum words per comment: 80*  
 *Embedding Dimension: 100*  
 *Dropout = 0.2*  
 
 *Total of 5 layers with 1 embedding, 2 LSTM, 1 dropout and 1 dense.*  
-*optimizer= adam*  
-*loss = binary_crossentropy*
+*Optimizer= adam*  
+*Loss = binary_crossentropy*
    
 
 Training accuracy: 86%  

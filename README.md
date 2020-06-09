@@ -32,7 +32,7 @@ One would wonder what makes a kickstarter campaign successful. Let's wonder no m
 
 I'm using three different sets of data for this project: basic information for ~204,000 Kickstarter campaigns, backers' comments, and comments with sentiment analysis. The Kickstarter dataset that contain detailed information about each campaign is downloadable. Comments with sentiment analysis can be found on Kaggle, and lastly, I scraped the Kickstarter comments manually. 
 
-The downloadable datasets have a total of 55 csv files that contain campaigns starting from April of 2009 up until April of 2020. I started with 204,625 rows and 38 columns of data; after removing duplicate entries, cancelled and live campaigns, irrelevant features, and campaigns with a length of more than 90 days, I was left with 169,591 datapoints to work with. 
+The downloadable datasets (https://webrobots.io/kickstarter-datasets/) have a total of 55 csv files that contain campaigns starting from April of 2009 up until April of 2020. I started with 204,625 rows and 38 columns of data; after removing duplicate entries, cancelled and live campaigns, irrelevant features, and campaigns with a length of more than 90 days, I was left with 169,591 datapoints to work with. 
 
 The columns that I kept are:
 - Backers Count (number of backers per campaign)

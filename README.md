@@ -11,6 +11,7 @@
 - [Natural Language Processing (NLP)](#natural-language-processing-nlp)
 - [Hyperparameters and Feature Importance](#hyperparameters-and-feature-importance)
 - [LSTM Networks](#lstm-networks)
+- [Evaluation](#evaluation)
 - [Conclusion](#conclusion)
 
 ---
@@ -206,7 +207,7 @@ Here are some of the suggestions for a successful campaign on Kickstarter:
 
 Majority of the kickstarter comments are posted after the campaign has been funded. In addition to that, roughly 20% of those with mid-campaign comments have failed. Hence, adding just the feature of whether or not there were mid-campaign comments did not seem to give a large enough signal. However, combining the comment feature along with their sentiment analysis brings new insights on how the general public views of the campaigns. 
 
-In conclusion, I am able to use machine learning to predict, with **83.4%** accurancy, whether a Kickstarter campaign would meet its funding goal within 60 days of its launch. 
+In conclusion, I am able to use machine learning to predict, with **84.00%** accurancy, whether a Kickstarter campaign would meet its funding goal within 60 days of its launch. 
 
 
 

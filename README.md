@@ -23,7 +23,7 @@ Kickstarter is a crowdfunding platform with a stated mission to "bring creative 
 
 ## Project Goal
 
-One would wonder what makes a kickstarter campaign successful. Let's wonder no more. We are going to use machine learning models to predict whether a campaign will meet its funding goal within 90 days of launched date. Hence to answer the question, "what can you leverage to make your campaign successful?"
+One would wonder what makes a kickstarter campaign successful. Let's wonder no more. We are going to use machine learning models to predict whether a campaign will meet its funding goal within 60 days of launched date. Hence to answer the question, "what can you leverage to make your campaign successful?"
 
 ---
 
@@ -170,41 +170,44 @@ Because I did not have enough data to train my LSTM model, I used a dataset that
 
 To compare apples to apples, I first ran my Gradient Boost model with the 26,779 scraped campaigns to see how they do. Then I added a new categorical feature for campaigns with mid-campaign comments as 1, those without as 0. Then I added an additional campaign length feature as the number of mid_campaign comments. Here are the accuracy results: 
 
-**No added comment feature:** 80.5%
+No added comment feature: **80.5%**
 
-**With catorical mid-campaign comments as feature:** 81.5%
+With catorical mid-campaign comments as feature: **81.5%**  
 
-**With mid-campaign comments and length of comments:** 81.2%
+With mid-campaign comments and length of comments: **81.2%**  
 
-### LSTM on Sentiment Analysis
+#### LSTM on Sentiment Analysis
 
-I trained my LSTM model with 80,000 short phrases of Kickstarter comments. I split the data between training set and testing set, train a few models with different parameters, and the following parameters gave me the best result:
+I trained my LSTM model with 80,000 short phrases of Kickstarter comments. I split the data between training set and testing set, trained a few models with various parameters, and the following parameters gave me the best result:
 
-Number of keywords: 150
-Maxmium words per comment: 50
-Embedding Dimension: 100
-Dropout = 0.2
+*Number of keywords: 200*  
+*Maxmium words per comment: 80*  
+*Embedding Dimension: 100*  
+*Dropout = 0.2*  
 
-Total of 5 layers with 1 embedding, 2 LSTM, 1 dropout and 1 dense.
+*Total of 5 layers with 1 embedding, 2 LSTM, 1 dropout and 1 dense.*  
+*optimizer= adam*  
+*loss = binary_crossentropy*
+   
 
-Training accuracy: 78%
-Test accuracy: 70%
+Training accuracy: 86%  
+Test accuracy: 78%
 
-With my LSTM model and sentiment analysis as an added feature, I was able to achieve 83.4% using Random Forest.
+With my LSTM model and sentiment analysis as an added feature, I was able to achieve **84.00%** using Random Forest.
 
 
 
 ## Conclusion
 
-To conclude, here are some of the suggestions for a successful campaign on Kickstarter:
+Here are some of the suggestions for a successful campaign on Kickstarter:
 - **Goal:** Have a reasonable funding goal.
 - **Staff Pick:** Staff pick campaigns get prime placement on the Kickstarter's website and they appear in Kickstarter's widely-distributed email. It would only make sense that being featured on "Projects We Love" by Kickstarter would help with meeting your project goal.
 - **Campaign Length:** Keep your campaign length to 30 days. 
 
+Majority of the kickstarter comments are posted after the campaign has been funded. In addition to that, roughly 20% of those with mid-campaign comments have failed. Hence, adding just the feature of whether or not there were mid-campaign comments did not seem to give a large enough signal. However, combining the comment feature along with their sentiment analysis brings new insights on how the general public views of the campaigns. 
+
 In conclusion, I am able to use machine learning to predict, with **83.4%** accurancy, whether a Kickstarter campaign would meet its funding goal within 60 days of its launch. 
 
-Once I added the comment feature into my model, I was able to improve my model by approximately 3%. I believe I continue to tweek my model, and if I have more data points to work with, I will be able to provide a more prominant result on how sentiment analysis can impact a model.
- 
 
 
 

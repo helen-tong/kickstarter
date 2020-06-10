@@ -100,8 +100,8 @@ Most campaigns launched between 2010 until the end of of 2013 were able to raise
 After doing one hot encoding to all categorical features, I was ready to split the data into training set and testing set, and train them with machine learning models. The three models that I did as my baseline models are logistic regression, random forest classifier, and gradient boost classifier. 
 
 ### Logistic Regression
-- **Accuracy:** 0.627
-- **Cross val score:** 0.623
+- **Accuracy:** 0.628
+- **ROC AUC Score:** 0.654
 - **Confusion Matrix:**
      | 21,848   | 2663  | 
     | :-------- | :------: | 
@@ -110,7 +110,7 @@ After doing one hot encoding to all categorical features, I was ready to split t
 
 ### Random Forest Classifier
 - **Accuracy:** 0.715
-- **Cross val score:** 0.714
+- **ROC AUC Score:** 0.806
 - **Confusion Matrix:**
      | 18,001    | 6510   | 
     | :-------- | :------: | 
@@ -118,7 +118,7 @@ After doing one hot encoding to all categorical features, I was ready to split t
 
 ### Gradient Boost Classifier
 - **Accuracy:** 0.742
-- **Cross val score:** 0.738
+- **ROC AUC Score:** 0.812
 - **Confusion Matrix:** 
 
     | 20,133    | 4,378   | 
@@ -194,7 +194,7 @@ I trained my LSTM model with 80,000 short phrases of Kickstarter comments. I spl
 Training accuracy: 86%  
 Test accuracy: 78%
 
-With my LSTM model and sentiment analysis as an added feature, I was able to achieve 84.00% accuracy score using Random Forest. 
+With my LSTM model and sentiment analysis as an added feature, I was ablef to achieve 84.00% accuracy score using Random Forest. 
 
 **Accuracy: 84%**  
 **Precision: 86%**   
